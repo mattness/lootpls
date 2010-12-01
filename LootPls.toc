@@ -1,0 +1,7 @@
+## Interface: 40000
+## Title: LootPls
+## Notes: EPGP-based Loot System, with improved UI and data storage
+## Author: Mattness - Galakrond (US)
+## Version: 0.1
+## SavedVariables: LootPls
+## X-Category: Guild
