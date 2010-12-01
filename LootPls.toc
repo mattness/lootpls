@@ -5,3 +5,6 @@
 ## Version: 0.1
 ## SavedVariables: LootPls
 ## X-Category: Guild
+
+lootpls_ui.xml
+lootpls_ui.lua
