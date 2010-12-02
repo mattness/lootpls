@@ -1,0 +1,62 @@
+﻿<Ui xmlns="http://www.blizzard.com/wow/ui/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ../UI.xsd">
+
+  <Script file="lootpls_roster.lua" />
+
+  <Frame name="LootPlsRosterFrame" parent="LootPlsFrame" setAllPoints="true" hidden="true">
+    <Frames>
+      <Button name="LootPlsRosterColumnButton1" inherits="GuildRosterColumnButtonTemplate">
+        <Scripts>
+          <OnClick function="LootPlsRoster_SortByColumn"/>
+        </Scripts>
+      </Button>
+      <Button name="LootPlsRosterColumnButton2" inherits="GuildRosterColumnButtonTemplate">
+        <Scripts>
+          <OnClick function="LootPlsRoster_SortByColumn"/>
+        </Scripts>
+      </Button>
+      <Button name="LootPlsRosterColumnButton3" inherits="GuildRosterColumnButtonTemplate">
+        <Scripts>
+          <OnClick function="LootPlsRoster_SortByColumn"/>
+        </Scripts>
+      </Button>
+      <Button name="LootPlsRosterColumnButton4" inherits="GuildRosterColumnButtonTemplate">
+        <Scripts>
+          <OnClick function="LootPlsRoster_SortByColumn"/>
+        </Scripts>
+      </Button>
+      <ScrollFrame name="LootPlsRosterContainer" inherits="HybridScrollFrameTemplate">
+        <Size x="302" y="300" />
+        <Anchors>
+          <Anchor point="TOPRIGHT">
+            <Offset>
+              <AbsDimension x="-27" y="-95"/>
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Frames>
+          <Slider name="$parentScrollBar" inherits="HybridScrollBarTemplate">
+            <Anchors>
+              <Anchor point="TOPLEFT" relativePoint="TOPRIGHT">
+                <Offset>
+                  <AbsDimension x="0" y="-12"/>
+                </Offset>
+              </Anchor>
+              <Anchor point="BOTTOMLEFT" relativePoint="BOTTOMRIGHT">
+                <Offset>
+                  <AbsDimension x="0" y="12"/>
+                </Offset>
+              </Anchor>
+            </Anchors>
+          </Slider>
+        </Frames>
+      </ScrollFrame>
+    </Frames>
+    <Scripts>
+      <OnLoad function="LootPlsRosterFrame_OnLoad"/>
+      <OnEvent function="LootPlsRosterFrame_OnEvent"/>
+      <OnShow function="LootPlsRosterFrame_OnShow"/>
+    </Scripts>
+  </Frame>
+</Ui>
