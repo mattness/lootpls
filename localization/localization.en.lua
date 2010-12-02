@@ -1,0 +1,2 @@
+LOOTPLS_TAB_STANDINGS_ABBR = "Standings";
+LOOTPLS_TAB_MGMT_ABBR = "Manage";

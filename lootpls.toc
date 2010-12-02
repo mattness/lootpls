@@ -6,5 +6,6 @@
 ## SavedVariables: LootPls
 ## X-Category: Guild
 
+localization\localization.en.lua
 lootpls_ui.xml
 lootpls_ui.lua

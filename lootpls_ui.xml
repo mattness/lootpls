@@ -33,8 +33,36 @@
 				</Texture>
 			</Layer>
 		</Layers>
+		<Frames>
+			<Button name="$parentTab1" inherits="CharacterFrameTabButtonTemplate" id="1" text="LOOTPLS_TAB_STANDINGS_ABBR">
+				<Anchors>
+					<Anchor point="BOTTOMLEFT" x="11" y="-30" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						LootPlsFrame_TabClicked(self);
+						PanelTemplates_Tab_OnClick(self, LootPlsFrame);
+						PlaySound("igCharacterInfoTab");
+					</OnClick>
+				</Scripts>
+			</Button>
+			<Button name="$parentTab2" inherits="CharacterFrameTabButtonTemplate" id="2" text="LOOTPLS_TAB_MGMT_ABBR">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="$parentTab1" relativePoint="RIGHT" x="-15" y="0" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						LootPlsFrame_TabClicked(self);
+						PanelTemplates_Tab_OnClick(self, LootPlsFrame);
+						PlaySound("igCharacterInfoTab");
+					</OnClick>
+				</Scripts>
+			</Button>
+		</Frames>
 		<Scripts>
 			<OnLoad function="LootPlsFrame_OnLoad"/>
+			<OnShow function="LootPlsFrame_OnShow"/>
+			<OnHide function="LootPlsFrame_OnHide"/>
 		</Scripts>
 	</Frame>
 </Ui>
