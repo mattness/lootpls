@@ -4,24 +4,137 @@
 
   <Script file="lootpls_roster.lua" />
 
+  <Button name="LootPlsRosterButtonTemplate" virtual="true">
+    <Size>
+      <AbsDimension x="299" y="20"/>
+    </Size>
+    <Layers>
+      <Layer level="BACKGROUND">
+        <Texture name="$parentStripe" setAllPoints="true" file="Interface\GuildFrame\GuildFrame" parentKey="stripe">
+          <TexCoords left="0.36230469" right="0.38183594" top="0.95898438" bottom="0.99804688"/>
+        </Texture>
+      </Layer>
+      <Layer level="BORDER">
+        <Texture name="$parentBarTexture" hidden="true" urgency="5" file="Interface\TargetingFrame\UI-StatusBar" parentKey="barTexture">
+          <Size>
+            <AbsDimension x="10" y="20"/>
+          </Size>
+          <Anchors>
+            <Anchor point="LEFT" x="60" y="0"/>
+          </Anchors>
+          <Color r="0" g="1" b="0" a="0.1"/>
+        </Texture>
+      </Layer>
+      <Layer level="ARTWORK">
+        <Texture name="$parentIcon" file="Interface\Glues\CharacterCreate\UI-CharacterCreate-Classes" parentKey="icon">
+          <Anchors>
+            <Anchor point="LEFT" x="4" y="0"/>
+          </Anchors>
+          <Size>
+            <AbsDimension x="16" y="16"/>
+          </Size>
+          <TexCoords left="0" right="0.25" top="0" bottom="0.25"/>
+        </Texture>
+        <FontString name="$parentString1" inherits="GameFontHighlightSmall" wordwrap="false" hidden="true" parentKey="string1">
+          <Size>
+            <AbsDimension x="10" y="10"/>
+          </Size>
+          <Anchors>
+            <Anchor point="LEFT" x="0" y="0"/>
+          </Anchors>
+        </FontString>
+        <FontString name="$parentString2" inherits="GameFontHighlightSmall" wordwrap="false" hidden="true" parentKey="string2">
+          <Size>
+            <AbsDimension x="10" y="10"/>
+          </Size>
+          <Anchors>
+            <Anchor point="LEFT" x="0" y="0"/>
+          </Anchors>
+        </FontString>
+        <FontString name="$parentString3" inherits="GameFontHighlightSmall" wordwrap="false" hidden="true" parentKey="string3">
+          <Size>
+            <AbsDimension x="10" y="10"/>
+          </Size>
+          <Anchors>
+            <Anchor point="LEFT" x="0" y="0"/>
+          </Anchors>
+        </FontString>
+        <FontString name="$parentString4" inherits="GameFontHighlightSmall" wordwrap="false" hidden="true" parentKey="string4">
+          <Size>
+            <AbsDimension x="10" y="10"/>
+          </Size>
+          <Anchors>
+            <Anchor point="LEFT" x="0" y="0"/>
+          </Anchors>
+        </FontString>
+      </Layer>
+    </Layers>
+    <HighlightTexture urgency="5" file="Interface\FriendsFrame\UI-FriendsFrame-HighlightBar" alphaMode="ADD" setAllPoints="true"/>
+    <Scripts>
+      <OnLoad>
+        self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+      </OnLoad>
+      <OnClick function="LootPlsRosterButton_OnClick"/>
+    </Scripts>
+  </Button>
   <Frame name="LootPlsRosterFrame" parent="LootPlsFrame" setAllPoints="true" hidden="true">
     <Frames>
       <Button name="LootPlsRosterColumnButton1" inherits="GuildRosterColumnButtonTemplate">
+        <Anchors>
+          <Anchor point="TOPLEFT">
+            <Offset>
+              <AbsDimension x="7" y="-68"/>
+            </Offset>
+          </Anchor>
+        </Anchors>
         <Scripts>
           <OnClick function="LootPlsRoster_SortByColumn"/>
         </Scripts>
       </Button>
       <Button name="LootPlsRosterColumnButton2" inherits="GuildRosterColumnButtonTemplate">
+        <Anchors>
+          <Anchor point="LEFT" relativeTo="LootPlsRosterColumnButton1" relativePoint="RIGHT">
+            <Offset>
+              <AbsDimension x="-2" y="0"/>
+            </Offset>
+          </Anchor>
+        </Anchors>
         <Scripts>
           <OnClick function="LootPlsRoster_SortByColumn"/>
         </Scripts>
       </Button>
       <Button name="LootPlsRosterColumnButton3" inherits="GuildRosterColumnButtonTemplate">
+        <Anchors>
+          <Anchor point="LEFT" relativeTo="LootPlsRosterColumnButton2" relativePoint="RIGHT">
+            <Offset>
+              <AbsDimension x="-2" y="0"/>
+            </Offset>
+          </Anchor>
+        </Anchors>
         <Scripts>
           <OnClick function="LootPlsRoster_SortByColumn"/>
         </Scripts>
       </Button>
       <Button name="LootPlsRosterColumnButton4" inherits="GuildRosterColumnButtonTemplate">
+        <Anchors>
+          <Anchor point="LEFT" relativeTo="LootPlsRosterColumnButton3" relativePoint="RIGHT">
+            <Offset>
+              <AbsDimension x="-2" y="0"/>
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <Scripts>
+          <OnClick function="LootPlsRoster_SortByColumn"/>
+        </Scripts>
+      </Button>
+      <Button name="LootPlsRosterColumnButton5" inherits="GuildRosterColumnButtonTemplate">
+        <Anchors>
+          <Anchor point="LEFT" relativeTo="LootPlsRosterColumnButton4" relativePoint="RIGHT">
+            <Offset>
+              <AbsDimension x="-2" y="0"/>
+            </Offset>
+          </Anchor>
+        </Anchors>
         <Scripts>
           <OnClick function="LootPlsRoster_SortByColumn"/>
         </Scripts>
@@ -55,7 +168,6 @@
     </Frames>
     <Scripts>
       <OnLoad function="LootPlsRosterFrame_OnLoad"/>
-      <OnEvent function="LootPlsRosterFrame_OnEvent"/>
       <OnShow function="LootPlsRosterFrame_OnShow"/>
     </Scripts>
   </Frame>

@@ -5,8 +5,7 @@
 ## Version: 0.1
 ## SavedVariables: LootPls
 ## X-Category: Guild
-
+## Dependencies:  Blizzard_GuildUI
 localization\localization.en.lua
 lootpls_ui.xml
-lootpls_ui.lua
 lootpls_roster.xml

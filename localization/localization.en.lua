@@ -1,2 +1,5 @@
 LOOTPLS_TAB_STANDINGS_ABBR = "Standings";
 LOOTPLS_TAB_MGMT_ABBR = "Manage";
+EP_TEXT = "EP";
+GP_TEXT = "GP";
+PR_TEXT = "PR";
