@@ -40,7 +40,7 @@ function LootPlsFrame_TabClicked(self)
 	PanelTemplates_SetTab(self:GetParent(), tabIndex);
 	if(tabIndex == 1) then
 		ButtonFrameTemplate_HideButtonBar(LootPlsFrame);
-		LootPlsFrame_ShowPanel("LootPlsRosterFrame");
+		LootPlsFrame_ShowPanel("LootPlsStandingsFrame");
 		LootPlsFrameInset:SetPoint("TOPLEFT", 4, -90);
 		LootPlsFrameInset:SetPoint("BOTTOMRIGHT", -7, 26);
 	else

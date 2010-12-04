@@ -2,9 +2,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ../UI.xsd">
 
-  <Script file="lootpls_roster.lua" />
+  <Script file="lootpls_standings.lua" />
 
-  <Button name="LootPlsRosterButtonTemplate" virtual="true">
+  <Button name="LootPlsStandingsButtonTemplate" virtual="true">
     <Size>
       <AbsDimension x="299" y="20"/>
     </Size>
@@ -74,12 +74,12 @@
       <OnLoad>
         self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
       </OnLoad>
-      <OnClick function="LootPlsRosterButton_OnClick"/>
+      <OnClick function="LootPlsStandingsButton_OnClick"/>
     </Scripts>
   </Button>
-  <Frame name="LootPlsRosterFrame" parent="LootPlsFrame" setAllPoints="true" hidden="true">
+  <Frame name="LootPlsStandingsFrame" parent="LootPlsFrame" setAllPoints="true" hidden="true">
     <Frames>
-      <Button name="LootPlsRosterColumnButton1" inherits="GuildRosterColumnButtonTemplate">
+      <Button name="LootPlsStandingsColumnButton1" inherits="GuildRosterColumnButtonTemplate">
         <Anchors>
           <Anchor point="TOPLEFT">
             <Offset>
@@ -88,58 +88,58 @@
           </Anchor>
         </Anchors>
         <Scripts>
-          <OnClick function="LootPlsRoster_SortByColumn"/>
+          <OnClick function="LootPlsStandings_SortByColumn"/>
         </Scripts>
       </Button>
-      <Button name="LootPlsRosterColumnButton2" inherits="GuildRosterColumnButtonTemplate">
+      <Button name="LootPlsStandingsColumnButton2" inherits="GuildRosterColumnButtonTemplate">
         <Anchors>
-          <Anchor point="LEFT" relativeTo="LootPlsRosterColumnButton1" relativePoint="RIGHT">
+          <Anchor point="LEFT" relativeTo="LootPlsStandingsColumnButton1" relativePoint="RIGHT">
             <Offset>
               <AbsDimension x="-2" y="0"/>
             </Offset>
           </Anchor>
         </Anchors>
         <Scripts>
-          <OnClick function="LootPlsRoster_SortByColumn"/>
+          <OnClick function="LootPlsStandings_SortByColumn"/>
         </Scripts>
       </Button>
-      <Button name="LootPlsRosterColumnButton3" inherits="GuildRosterColumnButtonTemplate">
+      <Button name="LootPlsStandingsColumnButton3" inherits="GuildRosterColumnButtonTemplate">
         <Anchors>
-          <Anchor point="LEFT" relativeTo="LootPlsRosterColumnButton2" relativePoint="RIGHT">
+          <Anchor point="LEFT" relativeTo="LootPlsStandingsColumnButton2" relativePoint="RIGHT">
             <Offset>
               <AbsDimension x="-2" y="0"/>
             </Offset>
           </Anchor>
         </Anchors>
         <Scripts>
-          <OnClick function="LootPlsRoster_SortByColumn"/>
+          <OnClick function="LootPlsStandings_SortByColumn"/>
         </Scripts>
       </Button>
-      <Button name="LootPlsRosterColumnButton4" inherits="GuildRosterColumnButtonTemplate">
+      <Button name="LootPlsStandingsColumnButton4" inherits="GuildRosterColumnButtonTemplate">
         <Anchors>
-          <Anchor point="LEFT" relativeTo="LootPlsRosterColumnButton3" relativePoint="RIGHT">
+          <Anchor point="LEFT" relativeTo="LootPlsStandingsColumnButton3" relativePoint="RIGHT">
             <Offset>
               <AbsDimension x="-2" y="0"/>
             </Offset>
           </Anchor>
         </Anchors>
         <Scripts>
-          <OnClick function="LootPlsRoster_SortByColumn"/>
+          <OnClick function="LootPlsStandings_SortByColumn"/>
         </Scripts>
       </Button>
-      <Button name="LootPlsRosterColumnButton5" inherits="GuildRosterColumnButtonTemplate">
+      <Button name="LootPlsStandingsColumnButton5" inherits="GuildRosterColumnButtonTemplate">
         <Anchors>
-          <Anchor point="LEFT" relativeTo="LootPlsRosterColumnButton4" relativePoint="RIGHT">
+          <Anchor point="LEFT" relativeTo="LootPlsStandingsColumnButton4" relativePoint="RIGHT">
             <Offset>
               <AbsDimension x="-2" y="0"/>
             </Offset>
           </Anchor>
         </Anchors>
         <Scripts>
-          <OnClick function="LootPlsRoster_SortByColumn"/>
+          <OnClick function="LootPlsStandings_SortByColumn"/>
         </Scripts>
       </Button>
-      <ScrollFrame name="LootPlsRosterContainer" inherits="HybridScrollFrameTemplate">
+      <ScrollFrame name="LootPlsStandingsContainer" inherits="HybridScrollFrameTemplate">
         <Size x="302" y="300" />
         <Anchors>
           <Anchor point="TOPRIGHT">
@@ -167,8 +167,8 @@
       </ScrollFrame>
     </Frames>
     <Scripts>
-      <OnLoad function="LootPlsRosterFrame_OnLoad"/>
-      <OnShow function="LootPlsRosterFrame_OnShow"/>
+      <OnLoad function="LootPlsStandingsFrame_OnLoad"/>
+      <OnShow function="LootPlsStandingsFrame_OnShow"/>
     </Scripts>
   </Frame>
 </Ui>
