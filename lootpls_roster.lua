@@ -20,7 +20,7 @@ LOOTPLS_ROSTER_COLUMN_DATA = {
 
 function LootPlsRoster_SortByColumn(column)
 	if ( column.sortType ) then
-		SortRoster(column.sortType);
+		LootPlsRoster_SortRoster(column.sortType);
 	end
 	PlaySound("igMainMenuOptionCheckBoxOn");
 end
@@ -38,8 +38,6 @@ function LootPlsRosterFrame_OnShow(self)
 end
 
 function LootPlsRoster_Update()
-	print("LootPlsRoster_Update()");
-	debugstack();
 	local scrollFrame = LootPlsRosterContainer;
 	local offset = HybridScrollFrame_GetOffset(scrollFrame);
 	local buttons = scrollFrame.buttons;
@@ -155,11 +153,10 @@ function LootPlsRosterFrame_SetView(view)
 	end
 end
 
-function SortRoster(sortType)
+function LootPlsRoster_SortRoster(sortType)
 end
 
 function LootPlsRosterButton_SetStringText(buttonString, text, isOnline, class)
-  print("LootPlsRosterButton_SetStringText() "..buttonString:GetName()..":"..text);
 	buttonString:SetText(text);
 	if ( isOnline ) then
 		if ( class ) then

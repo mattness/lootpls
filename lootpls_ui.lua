@@ -2,8 +2,17 @@ UIPanelWindows["LootPlsFrame"] = { area = "left", pushable = 1, whileDead = 1 };
 local LOOTPLSFRAME_PANELS = { };
 local tabardLoaded = false;
 
+SLASH_LOOTPLS1, SLASH_LOOTPLS2 = "/lootpls", "/lp";
+
+function SlashCmdList.LOOTPLS(msg, editbox)
+	if ( LootPlsFrame:IsShown() ) then
+		HideUIPanel(LootPlsFrame);
+	else
+		ShowUIPanel(LootPlsFrame);
+	end
+end
+
 function LootPlsFrame_OnLoad(self)
-	debugstack();
 	PanelTemplates_SetNumTabs(self, 2);
 end
 
@@ -26,16 +35,7 @@ function LootPlsFrame_UpdateTabard()
 	end
 end
 
-function LootPlsFrame_Toggle()
-	if ( LootPlsFrame:IsShown() ) then
-		HideUIPanel(LootPlsFrame);
-	else
-		ShowUIPanel(LootPlsFrame);
-	end
-end
-
 function LootPlsFrame_TabClicked(self)
-	print("LootPlsFrame_TabClicked() self = "..self:GetName());
 	local tabIndex = self:GetID();
 	PanelTemplates_SetTab(self:GetParent(), tabIndex);
 	if(tabIndex == 1) then
