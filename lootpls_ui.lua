@@ -1,5 +1,6 @@
 UIPanelWindows["LootPlsFrame"] = { area = "left", pushable = 1, whileDead = 1 };
 local LOOTPLSFRAME_PANELS = { };
+local LOOTPLSFRAME_POPUPS = { };
 local tabardLoaded = false;
 
 SLASH_LOOTPLS1, SLASH_LOOTPLS2 = "/lootpls", "/lp";
@@ -64,4 +65,18 @@ function LootPlsFrame_ShowPanel(frameName)
 	if ( frame ) then
 		frame:Show();
 	end
+end
+
+function LootPlsFrame_RegisterPopup(frame)
+	tinsert(LOOTPLSFRAME_POPUPS, frame:GetName());
+end
+
+function LootPlsFramePopup_Show(frame)
+	local name = frame:GetName();
+	for index, value in ipairs(LOOTPLSFRAME_POPUPS) do
+		if ( name ~= value ) then
+			_G[value]:Hide();
+		end
+	end
+	frame:Show();
 end

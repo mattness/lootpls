@@ -171,4 +171,18 @@ function LootPlsStandingsButton_SetStringText(buttonString, text, isOnline, clas
 end
 
 function LootPlsStandingsButton_OnClick(self, button)
+	-- TODO:  Button highlight handling here isn't right, it needs to be incorporated in LootPlsStandingsFrame_SetView somehow
+	if( button == "LeftButton" ) then
+		if ( LootPlsCharacterDetailFrame:IsShown() and self.characterIndex == LootPlsFrame.selectedCharacter ) then
+			LootPlsFrame.selectedCharacter = 0;
+			self:UnlockHighlight();
+			LootPlsCharacterDetailFrame:Hide()
+		else
+			self:LockHighlight();
+			LootPlsFrame.selectedCharacter = self.characterIndex;
+			LootPlsFramePopup_Show(LootPlsCharacterDetailFrame);
+		end
+	else
+		-- TODO:  Add a context menu for things like viewing tran log or awarding bonus EP
+	end
 end

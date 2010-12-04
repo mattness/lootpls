@@ -77,6 +77,11 @@
       <OnClick function="LootPlsStandingsButton_OnClick"/>
     </Scripts>
   </Button>
+<!--
+*******************************************************************************
+	Standings panel
+*******************************************************************************
+-->  
   <Frame name="LootPlsStandingsFrame" parent="LootPlsFrame" setAllPoints="true" hidden="true">
     <Frames>
       <Button name="LootPlsStandingsColumnButton1" inherits="GuildRosterColumnButtonTemplate">
@@ -169,6 +174,65 @@
     <Scripts>
       <OnLoad function="LootPlsStandingsFrame_OnLoad"/>
       <OnShow function="LootPlsStandingsFrame_OnShow"/>
+    </Scripts>
+  </Frame>
+<!--
+*******************************************************************************
+	Character Detail panel
+*******************************************************************************
+-->
+  <Frame name="LootPlsCharacterDetailFrame" toplevel="true" enableMouse="true" hidden="true" parent="LootPlsFrame">
+    <Size>
+      <AbsDimension x="344" y="270"/>
+    </Size>
+    <Anchors>
+      <Anchor point="TOPLEFT" relativeTo="LootPlsFrame" relativePoint="TOPRIGHT">
+        <Offset>
+          <AbsDimension x="0" y="-28"/>
+        </Offset>
+      </Anchor>
+    </Anchors>
+    <Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+      <BackgroundInsets>
+        <AbsInset left="11" right="12" top="12" bottom="11"/>
+      </BackgroundInsets>
+      <TileSize>
+        <AbsValue val="32"/>
+      </TileSize>
+      <EdgeSize>
+        <AbsValue val="32"/>
+      </EdgeSize>
+    </Backdrop>
+    <Frames>
+      <Button name="LootPlsCharacterDetailCloseButton" inherits="UIPanelCloseButton">
+        <Anchors>
+          <Anchor point="TOPRIGHT">
+            <Offset>
+              <AbsDimension x="-3" y="-3"/>
+            </Offset>
+          </Anchor>
+        </Anchors>
+      </Button>
+      <Button name="LootPlsCharacterAwardEPButton" inherits="UIPanelButtonTemplate" text="AWARD_EP">
+        <Size>
+          <AbsDimension x="96" y="22"/>
+        </Size>
+        <Anchors>
+          <Anchor point="BOTTOMRIGHT">
+            <Offset>
+              <AbsDimension x="-10" y="12"/>
+            </Offset>
+          </Anchor>
+        </Anchors>
+        <NormalFont style="GameFontNormalSmall"/>
+        <HighlightFont style="GameFontHighlightSmall"/>
+        <DisabledFont style="GameFontDisableSmall"/>
+      </Button>
+    </Frames>
+    <Scripts>
+      <OnLoad>
+        LootPlsFrame_RegisterPopup(self);
+      </OnLoad>
     </Scripts>
   </Frame>
 </Ui>
