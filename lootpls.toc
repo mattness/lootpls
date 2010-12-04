@@ -8,4 +8,4 @@
 ## Dependencies:  Blizzard_GuildUI
 localization\localization.en.lua
 lootpls_ui.xml
-lootpls_roster.xml
+lootpls_standings.xml
