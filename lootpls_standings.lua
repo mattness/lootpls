@@ -87,7 +87,9 @@ end
 
 function LootPlsStandings_GetMemberInfo(index)
   local name, rank, rankIndex, level, class, zone, note, officernote, online, status, classFileName, achievementPoints, achievementRank, isMobile = GetGuildRosterInfo(index);
-  return name, classFileName, online, 350, 100, 3.5;
+  local ep = math.random(1000, 10000);
+  local gp = math.random(100, 1000);
+  return name, classFileName, online, ep, gp, ep/gp;
 end
 
 function LootPlsStandingsFrame_SetView(view)
