@@ -1,11 +1,13 @@
 ## Interface: 40000
 ## Title: LootPls
 ## Notes: EPGP-based Loot System, with improved UI and data storage
-## Author: Mattness - Galakrond (US)
+## Author: Mattness (US-Galakrond)
 ## Version: 0.1
 ## SavedVariables: LootPls
 ## X-Category: Guild
-## Dependencies:  Blizzard_GuildUI
+## Dependencies:  Blizzard_GuildUI, Ace3
+
 localization\localization.en.lua
+lootpls.lua
 lootpls_ui.xml
 lootpls_standings.xml

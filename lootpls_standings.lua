@@ -43,18 +43,17 @@ function LootPlsStandings_Update()
 	local buttons = scrollFrame.buttons;
 	local numButtons = #buttons;
 	local button, index;
-	local totalMembers = LootPlsStandings_GetMemberCount();
+	local totalMembers = LootPls:GetMemberCount(GetRealmName(), GetGuildInfo("player"));
 	
-	-- numVisible
 	local visibleMembers = totalMembers;
 	
 	for i = 1, numButtons do
 		button = buttons[i];		
 		index = offset + i;
-		local name, classFileName, online, effortPoints, gearPoints, priority = LootPlsStandings_GetMemberInfo(index);
+		local name, classFileName, online, effortPoints, gearPoints, priority = LootPls:GetMemberInfo("Galakrond.The Cake Is A Lie", index);
 		if ( name and index <= visibleMembers ) then
 			button.guildIndex = index;
-			local displayedName = --[[ChatFrame_GetMobileEmbeddedTexture(119/255, 137/255, 119/255)..]]name;
+			local displayedName = name;
 			button.online = online;
 			if ( currentStandingsView == "standings" ) then
       
@@ -78,18 +77,6 @@ function LootPlsStandings_Update()
 	local totalHeight = visibleMembers * (LOOTPLS_STANDINGS_BUTTON_HEIGHT + LOOTPLS_STANDINGS_BUTTON_OFFSET);
 	local displayedHeight = numButtons * (LOOTPLS_STANDINGS_BUTTON_HEIGHT + LOOTPLS_STANDINGS_BUTTON_OFFSET);
 	HybridScrollFrame_Update(scrollFrame, totalHeight, displayedHeight);
-end
-
-function LootPlsStandings_GetMemberCount()
-	local totalMembers = GetNumGuildMembers();
-  return totalMembers;
-end
-
-function LootPlsStandings_GetMemberInfo(index)
-  local name, rank, rankIndex, level, class, zone, note, officernote, online, status, classFileName, achievementPoints, achievementRank, isMobile = GetGuildRosterInfo(index);
-  local ep = math.random(1000, 10000);
-  local gp = math.random(100, 1000);
-  return name, classFileName, online, ep, gp, ep/gp;
 end
 
 function LootPlsStandingsFrame_SetView(view)
