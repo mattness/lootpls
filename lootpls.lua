@@ -35,8 +35,39 @@ local dummyData = {
 	},
 };
 
+local sortedData = { };
+
+local comparers = {
+	["class"] = function(p1, p2)
+		return p1["class"] < p2["class"];
+	end,
+	["name"] = function(p1, p2)
+		return false;
+	end,
+	["ep"] = function(p1, p2)
+		return p1["data1"] < p2["data1"]
+	end,
+	["gp"] = function(p1, p2)
+		return p1["data1"] < p2["data2"]
+	end,
+	["pr"] = function(p1, p2)
+		return (p1["data1"] / p1["data2"]) < (p2["data1"] / p2["data2"]);
+	end
+}
+
 local function GetOption(option)
 	return addon.db.global.Options[option]
+end
+
+local function CloneTable(srcTable)
+	local clone = { };
+	local i,v = next(srcTable, nil)
+	while i do
+		clone[i] = v
+		i,v = next(srcTable,i);
+	end
+	
+	return clone;
 end
 
 function addon:OnInitialize()
@@ -47,6 +78,8 @@ end
 
 function addon:SortData(guildKey, sortType)
 	print(format("Sorting data for '%s' by '%s'", guildKey, sortType));
+	sortedData = CloneTable(dummyData.Guilds[guildKey].Raiders);
+	table.sort(sortedData, comparers[sortType])
 end
 
 function addon:GetMemberInfo(guildKey, index)
