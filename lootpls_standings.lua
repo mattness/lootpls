@@ -20,7 +20,7 @@ LOOTPLS_STANDINGS_COLUMN_DATA = {
 
 function LootPlsStandings_SortByColumn(column)
 	if ( column.sortType ) then
-		LootPlsStandings_SortRoster(column.sortType);
+		LootPls:SortData(format("%s.%s", GetRealmName(), GetGuildInfo("player")), column.sortType);
 	end
 	PlaySound("igMainMenuOptionCheckBoxOn");
 end
@@ -50,13 +50,12 @@ function LootPlsStandings_Update()
 	for i = 1, numButtons do
 		button = buttons[i];		
 		index = offset + i;
-		local name, classFileName, online, effortPoints, gearPoints, priority = LootPls:GetMemberInfo("Galakrond.The Cake Is A Lie", index);
+		local name, classFileName, online, effortPoints, gearPoints, priority = LootPls:GetMemberInfo(format("%s.%s", GetRealmName(), GetGuildInfo("player")), index);
 		if ( name and index <= visibleMembers ) then
 			button.guildIndex = index;
 			local displayedName = name;
 			button.online = online;
 			if ( currentStandingsView == "standings" ) then
-      
 				button.icon:SetTexCoord(unpack(CLASS_ICON_TCOORDS[classFileName]));
 				LootPlsStandingsButton_SetStringText(button.string1, displayedName, online, classFileName);
 				LootPlsStandingsButton_SetStringText(button.string2, effortPoints, online);
@@ -142,9 +141,6 @@ function LootPlsStandingsFrame_SetView(view)
 	end
 end
 
-function LootPlsStandings_SortRoster(sortType)
-end
-
 function LootPlsStandingsButton_SetStringText(buttonString, text, isOnline, class)
 	buttonString:SetText(text);
 	if ( isOnline ) then
@@ -162,7 +158,7 @@ end
 function LootPlsStandingsButton_OnClick(self, button)
 	-- TODO:  Button highlight handling here isn't right, it needs to be incorporated in LootPlsStandingsFrame_SetView somehow
 	if( button == "LeftButton" ) then
-		if ( LootPlsCharacterDetailFrame:IsShown() and self.characterIndex == LootPlsFrame.selectedCharacter ) then
+		--[[if ( LootPlsCharacterDetailFrame:IsShown() and self.characterIndex == LootPlsFrame.selectedCharacter ) then
 			LootPlsFrame.selectedCharacter = 0;
 			self:UnlockHighlight();
 			LootPlsCharacterDetailFrame:Hide()
@@ -170,7 +166,7 @@ function LootPlsStandingsButton_OnClick(self, button)
 			self:LockHighlight();
 			LootPlsFrame.selectedCharacter = self.characterIndex;
 			LootPlsFramePopup_Show(LootPlsCharacterDetailFrame);
-		end
+		end]]--
 	else
 		-- TODO:  Add a context menu for things like viewing tran log or awarding bonus EP
 	end

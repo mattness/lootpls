@@ -45,11 +45,15 @@ function addon:OnInitialize()
 	setmetatable(LootPls, { __index = addon });
 end
 
+function addon:SortData(guildKey, sortType)
+	print(format("Sorting data for '%s' by '%s'", guildKey, sortType));
+end
+
 function addon:GetMemberInfo(guildKey, index)
 	-- This is a hack to get the member name from the index.  It needs to be reworked.
 	local name = GetGuildRosterInfo(index);
-	if ( name == nil ) then return nil end
-	
+	if( name == nil ) then return nil end
+
 	local member = dummyData.Guilds[guildKey].Raiders[name];
 	return name, member.class, false, member.data1, member.data2, member.data1/member.data2;
 end
