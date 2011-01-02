@@ -50,7 +50,7 @@ function LootPlsStandings_Update()
 	for i = 1, numButtons do
 		button = buttons[i];		
 		index = offset + i;
-		local name, classFileName, online, effortPoints, gearPoints, priority = LootPls:GetMemberInfo(format("%s.%s", GetRealmName(), GetGuildInfo("player")), index);
+		local name, classFileName, online, effortPoints, gearPoints, priority = LootPls:GetMemberInfo(index);
 		if ( name and index <= visibleMembers ) then
 			button.guildIndex = index;
 			local displayedName = name;
