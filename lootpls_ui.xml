@@ -58,6 +58,18 @@
 					</OnClick>
 				</Scripts>
 			</Button>
+			<Button name="$parentTab3" inherits="CharacterFrameTabButtonTemplate" id="3" text="LOOTPLS_TAB_RAID_ABBR">
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="$parentTab2" relativePoint="RIGHT" x="-15" y="0" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						LootPlsFrame_TabClicked(self);
+						PanelTemplates_Tab_OnClick(self, LootPlsFrame);
+						PlaySound("igCharacterInfoTab");
+					</OnClick>
+				</Scripts>
+			</Button>
 		</Frames>
 		<Scripts>
 			<OnLoad function="LootPlsFrame_OnLoad"/>

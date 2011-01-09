@@ -14,7 +14,7 @@ function SlashCmdList.LOOTPLS(msg, editbox)
 end
 
 function LootPlsFrame_OnLoad(self)
-	PanelTemplates_SetNumTabs(self, 2);
+	PanelTemplates_SetNumTabs(self, 3);
 end
 
 function LootPlsFrame_OnShow(self)
@@ -44,12 +44,17 @@ function LootPlsFrame_TabClicked(self)
 		LootPlsFrame_ShowPanel("LootPlsStandingsFrame");
 		LootPlsFrameInset:SetPoint("TOPLEFT", 4, -90);
 		LootPlsFrameInset:SetPoint("BOTTOMRIGHT", -7, 26);
+	elseif (tabIndex == 3) then
+		LootPlsFrame_ShowPanel("LootPlsRaidFrame");
 	else
 		LootPlsFrame_ShowPanel("None");
 	end
 end
 
 function LootPlsFrame_RegisterPanel(frame)
+	if(frame:GetName() == "LootPlsRaid") then
+		PanelTemplates_SetDisabledTabState(frame);
+	end
 	tinsert(LOOTPLSFRAME_PANELS, frame:GetName());
 end
 
