@@ -11,3 +11,5 @@ localization\localization.en.lua
 lootpls.lua
 lootpls_ui.xml
 lootpls_standings.xml
+lootpls_management.xml
+lootpls_raid.xml
