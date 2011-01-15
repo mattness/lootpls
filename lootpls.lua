@@ -20,9 +20,37 @@ local function GetGuildKey(guild, realm)
 	return format("Default.%s.%s", realm, guild);
 end
 
+function addon:SetupLdb()
+	local LDB = LibStub("LibDataBroker-1.1");
+	if not LDB then return end
+	if addon.ldb then return end
+	
+	addon.ldb = LDB:NewDataObject("lootpls",
+		{
+			type = "launcher",
+			label = "LootPls",
+			icon = "Interface\\Icons\\Spell_Nature_StormReach",
+			OnClick = function(clickedFrame, button)
+				if button == "LeftButton" then
+					if ( LootPlsFrame:IsShown() ) then
+						HideUIPanel(LootPlsFrame);
+					else
+						ShowUIPanel(LootPlsFrame);
+					end
+				end
+			end,
+			OnTooltipShow = function(tooltip)
+				tooltip:AddLine("LootPls");
+				tooltip:AddLine("");
+				tooltip:AddLine("Left click to toggle the LootPls standings", 0, 1, 0);
+			end,
+		});
+end
+
 function addon:OnInitialize()
 	addon.db = LibStub("AceDB-3.0"):New(addonName .. "DB", AddonDB_Defaults);
 	setmetatable(LootPls, { __index = addon });
+	addon:SetupLdb()
 end
 
 function addon:SortData(guildKey, sortType)

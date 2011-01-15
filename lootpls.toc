@@ -6,6 +6,7 @@
 ## SavedVariables: LootPls
 ## X-Category: Guild
 ## Dependencies:  Blizzard_GuildUI, Ace3
+## OptionalDeps:  LibDataBroker-1.1
 
 localization\localization.en.lua
 lootpls.lua
