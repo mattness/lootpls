@@ -45,6 +45,8 @@ function LootPlsFrame_TabClicked(self)
 		LootPlsFrame_ShowPanel("LootPlsStandingsFrame");
 		LootPlsFrameInset:SetPoint("TOPLEFT", 4, -90);
 		LootPlsFrameInset:SetPoint("BOTTOMRIGHT", -7, 26);
+	elseif (tabIndex == 3) then
+		LootPlsFrame_ShowPanel("LootPlsRaidFrame");
 	else
 		LootPlsFrame_ShowPanel("None");
 	end
