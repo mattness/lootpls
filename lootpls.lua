@@ -66,8 +66,8 @@ function addon:GetMemberInfo(index, guild, realm)
 	local name = roster[index];
 	if( name == nil ) then return nil; end
 
-	local ep, gp = DataStore:GetGuildMemberDKP(guildKey, name);
-	return name, "PALADIN", false, ep, gp, ep/gp;
+	local ep, gp, class = DataStore:GetGuildMemberDKP(guildKey, name);
+	return name, class, false, ep, gp, ep/gp;
 end
 
 function addon:GetMemberCount(realm, guild)
@@ -90,5 +90,6 @@ function addon:SetupDummyData(guild, realm)
 		local characterKey = format("%s.%s", GetRealmName(), name);
 
 		DataStore:SetGuildMemberDKP(guildKey, name, ep, gp);
+		DataStore:SetGuildMemberMetadata(guildKey, name, classFileName, nil, nil);
 	end
 end
