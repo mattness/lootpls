@@ -10,5 +10,9 @@
 *******************************************************************************
 -->  
 	<Frame name="LootPlsRaidFrame" inherits="LootPlsStandingsTemplate">
+    <Scripts>
+      <OnLoad function="LootPlsRaidFrame_OnLoad"/>
+      <OnShow function="LootPlsRaidFrame_OnShow"/>
+    </Scripts>
 	</Frame>
 </Ui>

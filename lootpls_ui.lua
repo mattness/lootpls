@@ -19,6 +19,12 @@ end
 
 function LootPlsFrame_OnShow(self)
 	LootPlsFrame_UpdateTabard();
+	if ( UnitInRaid("player") ~= nil ) then
+		PanelTemplates_DisableTab(LootPlsFrame, 3);
+	else
+		PanelTemplates_EnableTab(LootPlsFrame, 3);
+	end
+
 	PlaySound("igCharacterInfoOpen");
 	if( not PanelTemplates_GetSelectedTab(self) ) then
 		LootPlsFrame_TabClicked(LootPlsFrameTab1);
@@ -53,10 +59,10 @@ function LootPlsFrame_TabClicked(self)
 end
 
 function LootPlsFrame_RegisterPanel(frame)
-	if(frame:GetName() == "LootPlsRaid") then
-		PanelTemplates_SetDisabledTabState(frame);
-	end
 	tinsert(LOOTPLSFRAME_PANELS, frame:GetName());
+	if(frame:GetName() == "LootPlsRaidFrame") then
+		
+	end
 end
 
 function LootPlsFrame_ShowPanel(frameName)

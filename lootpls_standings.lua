@@ -1,10 +1,7 @@
-local LOOTPLS_STANDINGS_MAX_COLUMNS = 5;
-local LOOTPLS_STANDINGS_MAX_STRINGS = 4;
-
 -- maybe someday we'll add more views with different columns to this frame, let's prepare for it now
 local currentStandingsView = "standings";
 local LOOTPLS_STANDINGS_COLUMNS = {
-	standings = { "class", "name", "ep", "gp", "pr" },
+	standings = LOOTPLS_STANDINGS_TEMPL_COLUMNS,
 };
 
 function LootPlsStandings_SortByColumn(column)
@@ -77,11 +74,11 @@ function LootPlsStandingsFrame_SetView(view)
 	local stringOffset = 0;
 	local haveIcon;
 	
-	for columnIndex = 1, LOOTPLS_STANDINGS_MAX_COLUMNS do
+	for columnIndex = 1, LOOTPLS_STANDINGS_TEMPL_MAX_COLUMNS do
 		local columnButton = _G["LootPlsStandingsFrameColumnButton"..columnIndex];
 		local columnType = LOOTPLS_STANDINGS_COLUMNS[view][columnIndex];
 		if ( columnType ) then
-			local columnData = LOOTPLS_STANDINGS_COLUMN_DATA[columnType];
+			local columnData = LOOTPLS_STANDINGS_TEMPL_COLUMN_DATA[columnType];
 			columnButton:SetText(columnData.text);
 			WhoFrameColumn_SetWidth(columnButton, columnData.width);
 			columnButton:Show();
@@ -109,7 +106,7 @@ function LootPlsStandingsFrame_SetView(view)
 	local button, fontString;
 	for buttonIndex = 1, #buttons do
 		button = buttons[buttonIndex];
-		for stringIndex = 1, LOOTPLS_STANDINGS_MAX_STRINGS do
+		for stringIndex = 1, LOOTPLS_STANDINGS_TEMPL_MAX_STRINGS do
 			fontString = button["string"..stringIndex];
 			local stringData = stringsInfo[stringIndex];
 			if ( stringData ) then

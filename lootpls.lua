@@ -20,6 +20,11 @@ local function GetGuildKey(guild, realm)
 	return format("Default.%s.%s", realm, guild);
 end
 
+local function CalculatePR(epVal, gpVal)
+	if ( not epVal or not gpVal ) then return nil; end
+	return epVal/gpVal;
+end
+
 function addon:SetupLdb()
 	local LDB = LibStub("LibDataBroker-1.1");
 	if not LDB then return end
@@ -67,7 +72,14 @@ function addon:GetMemberInfo(index, guild, realm)
 	if( name == nil ) then return nil; end
 
 	local ep, gp, class = DataStore:GetGuildMemberDKP(guildKey, name);
-	return name, class, false, ep, gp, ep/gp;
+	return name, class, false, ep, gp, CalculatePR(ep, gp);
+end
+
+function addon:GetRaidMemberInfo(name, guild, realm)
+	local guildKey = GetGuildKey(guild, realm);
+
+	local ep, gp, class = DataStore:GetGuildMemberDKP(guildKey, name);
+	return name, class, false, ep, gp, CalculatePR(ep, gp);
 end
 
 function addon:GetMemberCount(realm, guild)
