@@ -70,6 +70,25 @@
 					</OnClick>
 				</Scripts>
 			</Button>
+			<Button name="RaidAwardEPButton" inherits="MagicButtonTemplate" text="AWARD_EP" hidden="true">
+				<Size x="116" y="22"/>
+				<Anchors>
+					<Anchor point="BOTTOMRIGHT" />
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						if ( StaticPopup_FindVisible("ADD_GUILDMEMBER") ) then
+						StaticPopup_Hide("ADD_GUILDMEMBER");
+						else
+						StaticPopup_Show("ADD_GUILDMEMBER");
+						end
+					</OnClick>
+					<OnEnter>
+						GameTooltip_AddNewbieTip(self, ADDMEMBER, 1.0, 1.0, 1.0, NEWBIE_TOOLTIP_ADDMEMBER, 1);
+					</OnEnter>
+					<OnLeave function="GameTooltip_Hide"/>
+				</Scripts>
+			</Button>
 		</Frames>
 		<Scripts>
 			<OnLoad function="LootPlsFrame_OnLoad"/>
