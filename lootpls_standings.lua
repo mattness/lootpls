@@ -17,7 +17,7 @@ end
 function LootPlsStandingsFrame_OnLoad(self)
 	LootPlsFrame_RegisterPanel(self);
 	LootPlsStandingsFrameScrollContainer.update = LootPlsStandings_Update;
-	HybridScrollFrame_CreateButtons(LootPlsStandingsFrameScrollContainer, "LootPlsStandingsButtonTemplate", 0, 0, "TOPLEFT", "TOPLEFT", 0, -LOOTPLS_STANDINGS_BUTTON_OFFSET, "TOP", "BOTTOM");
+	HybridScrollFrame_CreateButtons(LootPlsStandingsFrameScrollContainer, "LootPlsStandingsButtonTemplate", 0, 0, "TOPLEFT", "TOPLEFT", 0, -LOOTPLS_STANDINGS_TEMPL_BUTTON_OFFSET, "TOP", "BOTTOM");
 	LootPlsStandingsFrameScrollContainerScrollBar.doNotHide = true;
 	LootPlsStandingsFrame_SetView("standings");
 end
@@ -62,8 +62,8 @@ function LootPlsStandings_Update()
 			button:Hide();
 		end
 	end
-	local totalHeight = visibleMembers * (LOOTPLS_STANDINGS_BUTTON_HEIGHT + LOOTPLS_STANDINGS_BUTTON_OFFSET);
-	local displayedHeight = numButtons * (LOOTPLS_STANDINGS_BUTTON_HEIGHT + LOOTPLS_STANDINGS_BUTTON_OFFSET);
+	local totalHeight = visibleMembers * (LOOTPLS_STANDINGS_TEMPL_BUTTON_HEIGHT + LOOTPLS_STANDINGS_TEMPL_BUTTON_OFFSET);
+	local displayedHeight = numButtons * (LOOTPLS_STANDINGS_TEMPL_BUTTON_HEIGHT + LOOTPLS_STANDINGS_TEMPL_BUTTON_OFFSET);
 	HybridScrollFrame_Update(scrollFrame, totalHeight, displayedHeight);
 end
 

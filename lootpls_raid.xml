@@ -9,8 +9,6 @@
 	Management panel
 *******************************************************************************
 -->  
-	<Frame name="LootPlsRaidFrame" parent="LootPlsFrame" setAllPoints="true" hidden="true">
-		<Frames>
-		</Frames>
+	<Frame name="LootPlsRaidFrame" inherits="LootPlsStandingsTemplate">
 	</Frame>
 </Ui>
