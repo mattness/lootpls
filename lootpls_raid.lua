@@ -10,6 +10,11 @@ end
 
 function LootPlsRaidFrame_OnShow(self)
 	LootPlsRaidFrame_Update();
+	RaidAwardEPButton:Show();
+end
+
+function LootPlsRaidFrame_OnHide(self)
+	RaidAwardEPButton:Hide();
 end
 
 function LootPlsRaidFrame_Update()

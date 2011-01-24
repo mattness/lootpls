@@ -13,6 +13,7 @@
     <Scripts>
       <OnLoad function="LootPlsRaidFrame_OnLoad"/>
       <OnShow function="LootPlsRaidFrame_OnShow"/>
+      <OnHide function="LootPlsRaidFrame_OnHide"/>
     </Scripts>
 	</Frame>
 </Ui>
