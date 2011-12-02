@@ -1,4 +1,4 @@
-## Interface: 40000
+## Interface: 40300
 ## Title: LootPls
 ## Notes: EPGP-based Loot System, with improved UI and data storage
 ## Author: Mattness (US-Galakrond)
